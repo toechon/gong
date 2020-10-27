@@ -7,7 +7,7 @@
 app_name=super&([\S]*)aid=\d+ app_name=super_pro&$1aid=1412 header
 
 [MITM]
-hostname = %APPEND% *.snssdk.com, *.kuwo.cn, vip1.kuwo.cn, api.picsart.c*, api.meiease.c*, api.meiyan.com, www.xmind.cn, api.bilibili.com, mp.weixin.qq.com, r.inews.qq.com, *.xxjjappss.com,*.huaerdadi.com
+hostname = %APPEND% *.snssdk.com, *.kuwo.cn, vip1.kuwo.cn, api.picsart.c*, api.meiease.c*, api.meiyan.com, www.xmind.cn, api.bilibili.com, mp.weixin.qq.com, r.inews.qq.com, *.xxjjappss.com,*.huaerdadi.com, api.m.jd.com
 
 [Script]
 # > 皮皮虾  Remove Ad & Logo
@@ -29,3 +29,5 @@ WeChat.js = script-path=https://Choler.github.io/Surge/Script/WeChat.js,type=htt
 QQNews.js = requires-body=1,script-path=https://Choler.github.io/Surge/Script/QQNews.js,type=http-response,pattern=^https://r\.inews\.qq.com\/get(QQNewsUnreadList|RecommendList)
 # > 小小影视 去广告&VIP
 xiaoxiao = type=http-response,requires-body=1,max-size=0,pattern=https:\/\/.*\..*\.com\/(ssp-svr\/ssp\/list3|ucp/index|getGlobalData),script-path= https://raw.githubusercontent.com/photonmang/quantumultX/master/xxys.js
+# > 京东比价
+jd_price.js = type=http-response,pattern=https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js,script-update-interval=0
