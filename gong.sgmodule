@@ -22,7 +22,7 @@ AND,((USER-AGENT,ZhihuHybrid*), (URL-REGEX,.*recommend)),REJECT
 app_name=super&([\S]*)aid=\d+ app_name=super_pro&$1aid=1412 header
 
 [MITM]
-hostname = %APPEND% *.snssdk.com, *.kuwo.cn, vip1.kuwo.cn, api.picsart.c*, api.meiease.c*, api.meiyan.com, www.xmind.cn, api.bilibili.com, mp.weixin.qq.com, r.inews.qq.com, *.xxjjappss.com,*.huaerdadi.com, api.m.jd.com, api.bilibili.com, app.bilibili.com, api.live.bilibili.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, p.du.163.com, www.luqijianggushi.com, 
+hostname = %APPEND% *.snssdk.com, *.kuwo.cn, vip1.kuwo.cn, api.picsart.c*, api.meiease.c*, api.meiyan.com, www.xmind.cn, api.bilibili.com, mp.weixin.qq.com, r.inews.qq.com, *.xxjjappss.com,*.huaerdadi.com, api.m.jd.com, api.bilibili.com, app.bilibili.com, api.live.bilibili.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, p.du.163.com, www.luqijianggushi.com, api2.mubu.com, 
 
 [Script]
 # > 皮皮虾  Remove Ad & Logo
@@ -64,3 +64,7 @@ zhihu link = type=http-request,pattern=https?://link.zhihu.com/\?target=,script-
 wnyd.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/wnyd.js,type=http-response,pattern=^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json
 # > 陆琪讲故事
 luqi.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/luqi.js,type=http-response,pattern=^https:\/\/www\.luqijianggushi\.com\/api\/v2\/user\/get
+# > 滴答
+http-response ^https:\/\/(ticktick|dida365)\.com\/api\/v2\/user\/status requires-body=1,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Crack/ddqd.js,tag=滴答
+# > 幕布
+http-response https:\/\/api2\.mubu\.com\/v3\/api\/user\/current_user script-path=https://raw.githubusercontent.com/ZhiYi-N/Loon/master/mb.js, requires-body=true, timeout=10, tag=幕布
