@@ -22,7 +22,7 @@ AND,((USER-AGENT,ZhihuHybrid*), (URL-REGEX,.*recommend)),REJECT
 app_name=super&([\S]*)aid=\d+ app_name=super_pro&$1aid=1412 header
 
 [MITM]
-hostname = %APPEND% *.snssdk.com, *.kuwo.cn, vip1.kuwo.cn, api.picsart.c*, api.meiease.c*, api.meiyan.com, *.xmind.*, api.bilibili.com, mp.weixin.qq.com, r.inews.qq.com, *.xxjjappss.com,*.huaerdadi.com, api.m.jd.com, api.bilibili.com, app.bilibili.com, api.live.bilibili.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, p.du.163.com, www.luqijianggushi.com, api2.mubu.com, 
+hostname = %APPEND% *.snssdk.com, *.kuwo.cn, vip1.kuwo.cn, api.picsart.c*, api.meiease.c*, api.meiyan.com, api.bilibili.com, mp.weixin.qq.com, r.inews.qq.com, *.xxjjappss.com,*.huaerdadi.com, api.m.jd.com, api.bilibili.com, app.bilibili.com, api.live.bilibili.com, www.zhihu.com, api.zhihu.com, link.zhihu.com, 118.89.204.198, p.du.163.com, www.luqijianggushi.com, api2.mubu.com, 
 
 [Script]
 # > 皮皮虾  Remove Ad & Logo
@@ -34,8 +34,6 @@ Kuwo.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.c
 PicsArt.js = requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/PicsArt.js,type=http-response,pattern=^https:\/\/api\.(picsart|meiease)\.c(n|om)\/users\/show\/me\.json
 # > 美颜相机一次性解锁内购（by黑黑酱）
 myxj.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/myxj.js,type=http-response,pattern=^https:\/\/api\.meiyan\.com\/iap\/verify\.json
-# > XMind思维导图
-Xmind = type=http-response,pattern=^https?:\/\/.*\.xmind\..*\/_res\/devices,script-path=https://raw.githubusercontent.com/LTribeSkyx/Script/master/XMind.js,script-update-interval=0
 # 哔哩哔哩1080p+
 开启1080P+ = type=http-response,pattern=https:\/\/ap(p|i)\.bilibili\.com\/((pgc\/player\/api\/playurl)|(x\/v2\/account\/myinfo\?)|(x\/v2\/account/mine\?)),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Script/Bilibili/BiliHD.js
 # > 微信公众号
