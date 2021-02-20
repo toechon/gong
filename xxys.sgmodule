@@ -1,9 +1,10 @@
 #!name= 小小影视
-#!desc= Remove xiaoxiao Ads&VIP
+#!desc= Remove xiaoxiao Ads
 #!system=ios
 
 [MITM]
-hostname = %APPEND% *.xxjjappss.com,*.huaerdadi.com,*.xiaoxiaoapps.com,*.xiaoxiaoimg.com
+hostname = %APPEND% *.xxjjappss.com,*.huaerdadi.com,*.xiaoxiaoapps.com,*.xiaoxiaoimg.com,*.xiaoxiaoappxs.com
 
 [Script]
-xiaoxiao = type=http-response,requires-body=1,max-size=0,pattern=https:\/\/.*\.(xiaoxiaoapps|xiaoxiaoimg|xxjjappss|huaerdadi)\.com\/(ssp-svr\/ssp\/list3|ucp/index|getGlobalData),script-path=https://raw.githubusercontent.com/photonmang/quantumultX/master/xxys.js
+#去广告
+xxysad.js = type=http-response,pattern=https:\/\/.*\/getGlobalData,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/xxysad.js,script-update-interval=0
