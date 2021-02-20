@@ -3,7 +3,7 @@
 #!system=ios
 
 [MITM]
-hostname = %APPEND% *.xxjjappss.com,*.huaerdadi.com
+hostname = %APPEND% *.xxjjappss.com,*.huaerdadi.com,*.xiaoxiaoapps.com,*.xiaoxiaoimg.com
 
 [Script]
-xiaoxiao = type=http-response,requires-body=1,max-size=0,pattern=https:\/\/.*\..*\.com\/(ssp-svr\/ssp\/list3|ucp/index|getGlobalData),script-path= https://raw.githubusercontent.com/photonmang/quantumultX/master/xxys.js
+xiaoxiao = type=http-response,requires-body=1,max-size=0,pattern=https:\/\/.*\.(xiaoxiaoapps|xiaoxiaoimg)\.com\/(ssp-svr\/ssp\/list3|ucp/index|getGlobalData),script-path=https://raw.githubusercontent.com/photonmang/quantumultX/master/xxys.js
