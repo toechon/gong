@@ -1,0 +1,13 @@
+#!name= WeChat
+#!desc= Remove wechat Ads
+#!system=ios
+[URL Rewrite]
+# > Tencent WeChat - mp.weixin.qq.com
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(ad_|advertisement|getappmsgad) - reject
+
+[MITM]
+hostname = mp.weixin.qq.com
+
+[Script]
+# Choler微信公众号去广告 
+http-request ^https://mp\.weixin\.qq\.com/mp/getappmsgad script-path=https://raw.githubusercontent.com/toechon/QuantumultX/master/NobyDa/Surge/JS/WeChat.js, tag=WeChat
