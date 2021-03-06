@@ -76,7 +76,7 @@ URL-REGEX,^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start,REJECT-TI
 ^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v\d\/show - reject
 # ---
 # > bilibili - app.bilibili.com,manga.bilibili.com
-# ^https?:\/\/app\.bilibili\.com\/x\/v\d\/splash\/ - reject
+^https?:\/\/app\.bilibili\.com\/x\/v\d\/splash\/ - reject
 ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash - reject
 # > BeiTaiKitchen - channel.beitaichufang.com
 ^https?:\/\/channel\.beitaichufang\.com\/channel\/api\/v\d\/promote\/ios\/start\/page - reject
