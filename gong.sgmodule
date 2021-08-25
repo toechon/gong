@@ -2,9 +2,6 @@
 #!desc= Remove Ads
 #!system=ios
 [URL Rewrite]
-# > Tencent WeChat - mp.weixin.qq.com
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/(ad_|advertisement|getappmsgad) - reject
-
 # > 知乎网页显示优化
 ^https://oia\.zhihu\.com/articles/([0-9]+)\?.* https://zhuanlan.zhihu.com/p/$1 307
 ^https://oia\.zhihu\.com/answers/([0-9]+)\?.* https://www.zhihu.com/answer/$1 307
