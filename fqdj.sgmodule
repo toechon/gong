@@ -1,0 +1,12 @@
+#!name=番茄短剧
+#!desc=解锁VIP付费视频
+
+[Map Local]
+^https?://fqapi\.tiantiangf\.cn/center-system/app-api/v1/banner/list data-type=text data="{}" status-code=200
+
+[Script]
+# >番茄短剧
+fqdj = type=http-response, pattern=^https?:\/\/fqapi.tiantiangf.cn\/center-(biz|admin)\/app-api\/v1\/(users\/me|skitsLists\/frontCheck), script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/fqdj.js, requires-body=true, max-size=-1, timeout=60
+
+[MITM]
+hostname = %APPEND% fqapi.tiantiangf.cn
