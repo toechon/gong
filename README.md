@@ -38,7 +38,7 @@
 
 ### 排名不分先后
 
-- [@thNylHx](https://github.com/thNylHx)(张军本人)
+- [@thNylHx](https://github.com/thNylHx)
 - [@28413761](https://github.com/28413761)(张军本人)
 - [@kissyouhunter](https://github.com/kissyouhunter)
 - [@cooip-jm](https://github.com/cooip-jm/About-openwrt/wiki)
