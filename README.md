@@ -36,10 +36,4 @@
 
 ## 特别鸣谢
 
-### 排名不分先后
-
 - [@thNylHx](https://github.com/thNylHx)
-
-
-#### 其他
-- [@massgravel](https://github.com/massgravel/Microsoft-Activation-Scripts)
