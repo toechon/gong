@@ -1,0 +1,9 @@
+#!name=慢慢买
+#!desc=去开屏
+
+[Script]
+# > manmanmai
+replaceBody = type=http-response, pattern=^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=splashAD-%3Eddgksf2013
+
+[MITM]
+hostname = %APPEND% apapia-sqk.manmanbuy.com
