@@ -1,5 +1,6 @@
 #!name=彩云天气
 #!desc=解锁VIP解锁48小时降水
+#!category=Module
 
 [Script]
 # > 伪装VIP解锁48小时降水[需登录][新验证接口][需旧版≤ 7.20.2]@ddgksf2013
