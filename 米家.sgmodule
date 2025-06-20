@@ -1,7 +1,8 @@
-#!name=米家
+#!name=小米
 #!desc=去广告
 #!author=RuCu6
-#!update=2024-08-24 12:50
+#!category=Module
+#!update=2025-06-20 12:50:00
 
 [URL Rewrite]
 # 小米金融 //api.jr.mi.com
@@ -9,20 +10,20 @@
 ^https:\/\/api\.jr\.mi\.com\/v\d\/adv - reject
 
 [Map Local]
-^https:\/\/shop-api\.retail\.mi\.com\/mtop\/navi\/(rec\/merge\/|skywheel\/mishop\/splash) data-type=text data="{}" status-code=200
+^https:\/\/shop-api\.retail\.mi\.com\/mtop\/navi\/(rec\/merge\/|skywheel\/mishop\/splash) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ## 搜索框,热词,卡片
-^https:\/\/api\.m\.mi\.com\/v1\/app\/popup_info$ data-type=text data="{}" status-code=200
+^https:\/\/api\.m\.mi\.com\/v1\/app\/popup_info$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-^https:\/\/api\.m\.mi\.com\/v1\/misearch\/search_input$ data-type=text data="{}" status-code=200
+^https:\/\/api\.m\.mi\.com\/v1\/misearch\/search_input$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-^https:\/\/api\.m\.mi\.com\/v2\/search\/search_default$ data-type=text data="{}" status-code=200
+^https:\/\/api\.m\.mi\.com\/v2\/search\/search_default$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ## 商品推荐信息流
-^https:\/\/api\.m\.mi\.com\/v1\/home\/page_feed(_v5)?$ data-type=text data="{}" status-code=200
+^https:\/\/api\.m\.mi\.com\/v1\/home\/page_feed(_v5)?$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 # 米家 //home.mi.com
-^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) data-type=text data="{}" status-code=200
+^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [Script]
 ## 开屏广告
