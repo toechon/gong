@@ -1,0 +1,7 @@
+# NAME: 放行白名单
+# AUTHOR: gong
+# REPO: https://github.com/toechon/gong/new/master/rule/Clash/release
+# UPDATED: 2025-06-26 09:00:00
+payload:
+- '+.hdsky.me'
+- '+.m-team.cc'
