@@ -1,6 +1,7 @@
 #!name=喜马拉雅
 #!desc=去开屏墨鱼补充模块
 #!author=ddgksf2013
+#!category=Cuttlefish
 
 [URL Rewrite]
 ^https?:\/\/(adse\.wsa|adse|adbehavior|xdcs-collector)\.xima.*\.com\/.* - reject
