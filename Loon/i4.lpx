@@ -1,0 +1,16 @@
+#!name=爱思助手去广告
+#!desc=去除开屏广告
+#!author=TG
+#!icon=https://github.com/toechon/gong/raw/master/File/i4.png
+#!openUrl=https://i4.cn/
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-12-20 02:22:33
+
+[Rewrite]
+#>爱思助手 //list-app-m.i4.cn
+^https:\/\/list-app-m\.i4\.cn\/(?:adclickcb|getHotSearchList|getopfstadinfo)\.xhtml - reject
+
+[MITM]
+hostname = list-app-m.i4.cn
