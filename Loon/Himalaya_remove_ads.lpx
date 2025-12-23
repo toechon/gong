@@ -1,0 +1,105 @@
+#!name=喜马拉雅去广告
+#!desc=移除开屏广告、播放器广告、各类推荐内容，精简频道和我的页面。
+#!author=MartinsKing
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Himalaya.png
+#!openUrl=https://apps.apple.com/app/id876336838
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!date=2024-05-16
+
+[Rule]
+DOMAIN,gslbali.ximalaya.com,REJECT
+DOMAIN,gslbtx.ximalaya.com,REJECT
+DOMAIN,adse.ximalaya.com,REJECT
+DOMAIN,adsehera.ximalaya.com,REJECT
+DOMAIN,adse.wsa.ximalaya.com,REJECT
+DOMAIN,adbehavior.ximalaya.com,REJECT
+DOMAIN,adbehavior.wsa.ximalaya.com,REJECT
+
+[Rewrite]
+^https?:\/\/xdcs-collector(hera)?\.ximalaya\.com\/(api|nyx)\/v1 - reject
+#播放页Live
+^https?:\/\/.*\.ximalaya\.com\/mobile-playpage\/view\/ - reject
+#MyInfo红点提醒
+^https?:\/\/.*\.ximalaya\.com\/chaos-notice-web\/v1\/message\/preview\/list - reject
+#大红包Tips
+^https?:\/\/.*\.ximalaya\.com\/social-web\/bottomTabs\/dynamicEntrance\/status - reject
+#屏蔽gif弹窗Ad
+^https?:\/\/.*\.xmcdn\.com\/\w{8}\/\w{4}-\w{16}\/.+gif$ - reject
+#屏蔽Aged请求
+^https?:\/\/.*\.ximalaya\.com\/(dog-portal\/checkOld|(child-mobile\/child|aged-mobile\/aged)\/mode\/query) - reject
+#部分Tab弹窗
+^https?:\/\/.*\.ximalaya\.com\/discovery-feed\/isShowUserGiftPendant - reject
+#屏蔽消息红点提示
+^https?:\/\/.*\.ximalaya\.com\/mobile-user\/unread - reject
+#屏蔽minor请求
+^https?:\/\/.*\.ximalaya\.com\/mobile-user\/minorProtection\/pop - reject
+#屏蔽隐私搜集
+^https?:\/\/.*\.ximalaya\.com\/collector\/xl\/v\d - reject
+#屏蔽版本更新
+^https?:\/\/.*\.ximalaya\.com\/butler-portal\/versionCheck - reject
+#屏蔽开屏广告
+^https?:\/\/(adse\.wsa|adse|adbehavior|xdcs-collector)\.xima.*\.com\/.* - reject
+^https?:\/\/.*\.xima.*\.com/mobile-user/minorProtection/pop - reject
+^https?:\/\/.*\.xima.*\.com\/(dog-portal\/checkOld|(child-mobile\/child|aged-mobile\/aged)\/mode\/query) - reject
+^https?:\/\/.*\.xima.*\.com\/(hub)?guideWord - reject
+^https?:\/\/.*\.xima.*\.com\/(hub\/)?hotWord - reject
+^https?:\/\/.*\.xima.*\.com\/(hub\/)?hotWordBillboard - reject
+^https?:\/\/.*\.xima.*\.com\/api\/v\d\/adRealTime - reject
+^https?:\/\/.*\.xima.*\.com\/butler-portal\/versionCheck - reject
+^https?:\/\/.*\.xima.*\.com\/chaos-notice-web\/v1\/message\/preview\/list - reject
+^https?:\/\/.*\.xima.*\.com\/collector\/xl\/v\d - reject
+^https?:\/\/.*\.xima.*\.com\/discovery-feed\/focus\/queryF - reject
+^https?:\/\/.*\.xima.*\.com\/discovery-feed\/isShowUserGiftPendant - reject
+^https?:\/\/.*\.xima.*\.com\/mobile-playpage\/view\/ - reject
+^https?:\/\/.*\.xima.*\.com\/mobile-user\/unread - reject
+^https?:\/\/.*\.xima.*\.com\/mobile\/discovery\/v\d\/location - reject
+^https?:\/\/.*\.xima.*\.com\/social-web\/bottomTabs\/dynamicEntrance\/status - reject
+^https?:\/\/.*\.xima.*\.com\/ting\/(loading|feed|home)? - reject
+^https?:\/\/gslb.*\.xima.*\.com\/ - reject
+#屏蔽位置请求
+^https?:\/\/.*\.ximalaya\.com\/mobile\/discovery\/v\d\/location - reject
+#屏蔽实时Ad请求
+^https?:\/\/.*\.ximalaya\.com\/api\/v\d\/adRealTime - reject
+#屏蔽ting_Ad
+^https?:\/\/.*\.ximalaya\.com\/ting\/(loading|feed|home)? - reject
+#修复轮播Ad失效Bug
+^https?:\/\/.*\.ximalaya\.com\/discovery-feed\/focus\/queryF - reject
+^https?:\/\.*linkeye-cloud\/checkIP - reject
+^https?:\/\/www\.taobao\.com\/help\/getip\.php - reject
+^https?:\/\.*audid-api\.taobao\.com - reject
+^https?:\/\/passport(ws)?\.ximalaya\.com\/user-http-app\/v1\/token\/refresh - reject
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/discovery-feed\/v\d\/mix\/ response-body-json-jq '.heData |= map(select(.item.list[].bizType != "SceneListenCard"))'
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/discovery-category\/customCategories\/ response-body-json-jq '.categoryList |= map(.itemList |= map(select(.title | test("直播|123狂欢节|SVIP"; "i") | not))) | .customCategoryList |= map(select(.title | test("直播|123狂欢节|SVIP"; "i") | not))'
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/football-portal\/diff2\/batch\? response-body-json-jq 'delpaths([["json","ad"]])'
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/football-portal\/diff2\/batch\? response-body-json-jq 'delpaths([["json","toc"]])'
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/nexus-web\/v\d\/tabs\/customTabs\? response-body-json-jq '.data.feedTabs |= map(select(.name != "大赛"))'
+^https:\/\/mobwsa\.ximalaya\.com\/mobile-playpage\/playpage\/tabs\/v2\/ response-body-json-jq 'delpaths([["data","playpage","resourceMap","defaultResource"]])'
+^https:\/\/mobwsa\.ximalaya\.com\/mobile-playpage\/playpage\/tabs\/v2\/ response-body-json-jq 'delpaths([["data","playpage","resourceMap","playPageTip"]])'
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/mobile-user\/v\d\/homePage\/ response-body-json-jq 'delpaths([["data","freeListenV2"]])'
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/mobile-user\/v\d\/homePage\/ response-body-json-jq '.data.serviceModule.entrances |= map(select(.name == "全部服务"))'
+^https:\/\/(search|searchwsa)\.ximalaya\.com\/hub\/(guideWord|hotWord)V\d\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/discovery-feed\/v\d\/scene\/listen\/refresh\? mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(m|mwsa)\.ximalaya\.com\/x-web-activity\/signIn\/getHomePageSignInInfo\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/subscribe\/v\d\/subscribe\/tagAlbumList$ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/track-feed\/v\d\/chase\/recommend\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/social-web\/follow-stream\/category\/\d+$ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/mobile-playpage\/playpage\/recommendContentV\d\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/mobile-playpage\/playpage\/recommend\/resource\/allocation\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/firework-portal\/v\d+\/sync\? mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/business-sale-promotion-guide-mobile-web\/popup\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/app-skin-service\/skin\/setting\/info\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(live|livewsa)\.ximalaya\.com\/lamia\/v1\/subscribe\/status$ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/subscribe\/v\d\/subscribe\/recommend\? mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/mobile-user\/v\d\/purchased\/recommend\/ mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/(m|mwsa)\.ximalaya\.com\/community\/square\/v\d\/stream\? mock-response-body data-type=text data="{"data":{"cards":[{"content":{},"type":"RECOMMENDS"}]},"ret":0}" status-code=200
+
+[Script]
+http-response ^https?:\/\/(mobile(hera)?|m(ob)?wsa|m)\.ximalaya\.com\/discovery-(category\/customCategories|feed\/v\d\/(freeListenTab\/queryCardList|mix)|ranking-web\/v\d\/ranking\/concreteRankList) script-path=https://raw.githubusercontent.com/ClydeTime/Surge/main/Script/XMLY/xmly.js, requires-body=true, tag=发现页
+
+http-response ^https?:\/\/(mobile(hera)?|m(ob)?wsa|m)\.ximalaya\.com\/(browsing-history-business\/browsing\/history\/query|focus-mobile\/focusPic\/info|nyx\/history\/query\/(detail|id\/list)|product\/detail\/v\d\/basicInfo\/dynamic|subscribe\/v\d\/subscribe\/comprehensive\/rank|vip\/(feed\/v1\/mix|v\d\/recommand)) script-path=https://raw.githubusercontent.com/ClydeTime/Surge/main/Script/XMLY/xmly.js, requires-body=true, tag=杂项
+
+http-response ^https?:\/\/search(wsa)?\.ximalaya\.com\/(hub\/)?(guideWordV\d|hotWord(V\d|Billboard\/card)) script-path=https://raw.githubusercontent.com/ClydeTime/Surge/main/Script/XMLY/xmly.js, requires-body=true, tag=搜索推荐
+
+[MITM]
+hostname = *.xima*.*, *.ximalaya.com, 1.56.98.101, 42.56.64.*, 43.231.145.10, 47.100.227.85, 61.164.145.12, 61.172.194.*, 101.72.254.86, 101.89.44.*, 101.89.53.103, 106.41.204.126, 112.80.180.72, 112.98.170.228, 112.99.146.108, 114.80.99.*, 115.56.90.192, 116.136.188.184, 118.25.119.177, 119.188.180.230, 124.163.196.195, 180.153.140.*, 180.153.250.*, 180.153.255.*, 180.163.28.*, 183.134.98.189, 221.204.43.106, 222.161.212.*
