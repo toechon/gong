@@ -1,0 +1,15 @@
+#!name=iScreen解锁VIP
+#!desc=移除开屏广告、弹窗、解锁VIP。
+#!author=彭于晏
+#!icon=https://github.com/toechon/gong/raw/master/File/iscreen.png
+#!openUrl=https://apps.apple.com/app/id1534704608
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-12-23 20:57:36
+
+[Script]
+http-response ^http[s]?:\/\/cs.kuso.xyz\/configs script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/iScreenk.js, requires-body=true, timeout=60, tag=iScreenk
+
+[MITM]
+hostname = cs.kuso.xyz
