@@ -1,9 +1,9 @@
-#!name=网易云音乐去广告@ddgksf2013
+#!name=网易云音乐
 #!desc=应用净化
 #!author=ddgksf2013
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SodaMusic.png
+#!icon=https://raw.githubusercontent.com/Keywos/rule/main/tv/app/144px/Netease.png
 #!category=ddgksf2013
-#!openUrl=https://apps.apple.com/app/id1605585211
+#!openUrl=https://apps.apple.com/app/id590338362
 
 [Map Local]
 # > 活动推广@ddgksf2013
