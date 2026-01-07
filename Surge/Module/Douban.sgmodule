@@ -11,6 +11,7 @@
 [Rule]
 DOMAIN-SUFFIX,erebor.douban.com,REJECT
 DOMAIN-SUFFIX,ad.doubanio.com,REJECT
+DOMAIN-SUFFIX,umengcloud.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,umeng.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
