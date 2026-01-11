@@ -5,6 +5,10 @@
 #!category=Module
 #!openUrl=https://apps.apple.com/app/id583700738
 
+[URL Rewrite]
+# 中国移动开屏广告
+^https:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/(explorePage\/getAdverList|init\/startInit) - reject
+
 [Map Local]
 # 弹窗
 ^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/popupWindow\/getDetail data-type=text data=" " status-code=200
